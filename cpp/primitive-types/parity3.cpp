@@ -11,17 +11,16 @@
 
 using namespace std;
 
-// method Brute-force
-// checking all bit 0 or 1
-//    if 1 them result change
+// method - using xor associative and commutative property
 
 short parity(ull n){
-    short result =0;
-    while(n){
-        result ^= (n & 1); // result XOR last bit of number
-        n = n>>1; // right sift
-    }
-    return result;
+    n ^= n>>32;
+    n ^= n>>16;
+    n ^= n>>8;
+    n ^= n>>4;
+    n ^= n>>2;
+    n ^= n>>1;
+    return n & 0x1;
 }
 
 int main(){
@@ -33,5 +32,4 @@ int main(){
     return 0;
 }
 
-// Time complexity = O(n)
-// n is number of bit in Integer
+// Time complexity = O(log(n)) where n is Integer

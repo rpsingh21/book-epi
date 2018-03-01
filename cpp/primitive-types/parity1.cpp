@@ -1,3 +1,4 @@
+// problem
 // Finding parity bit of integer .
 // For example
 //     7 (111) parity bit = 1
@@ -6,13 +7,14 @@
 
 #include <bits/stdc++.h>
 #define ll long long int
+#define ull unsigned long long int
 
 using namespace std;
 
 // method - Droping lowest set bit (LSB) of n
-// droping lsb by n & (n-1)
+// droping lsb by - n & (n-1)
 
-short parity(ll n){
+short parity(ull n){
     short result =0;
     while(n){
         result ^= 1; // chage result value on each set bit
@@ -24,10 +26,11 @@ short parity(ll n){
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n;
+    ull n;
     cin >> n;
     cout << parity(n) <<endl;
     return 0;
 }
 
-// Time complexity = O(k) where k is number of set bit in gitven integer
+// Time complexity = O(k)
+// where k is number of set bit in gitven integer
